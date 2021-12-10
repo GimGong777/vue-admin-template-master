@@ -62,39 +62,39 @@ export const constantRouterMap = [
         meta: { title: '医院设置添加', icon: 'tree' }
       },
 
-	  {
-	    path: 'edit/:id',
+	    {
+	      path: 'edit/:id',
         name: '医院设置修改',
-	    component: () => import('@/views/hospset/add'),
-	    meta: { title: '编辑', noCache: true },
+	      component: () => import('@/views/hospset/add'),
+	      meta: { title: '编辑', noCache: true },
         hidden: true
-	  },
+	    },
 
-	  {
-	    // 二级目录的路径
-	    path: 'hosp/list',
-	    // 二级目录的名字
-	    name: '医院列表',
-	    // 设置页面跳转的路径
-	    component: () => import('@/views/hosp/list'),
-	    meta: { title: '医院列表', icon: 'table' }
-	  },
+	    {
+	      // 二级目录的路径
+	      path: 'hosp/list',
+	      // 二级目录的名字
+	      name: '医院列表',
+	      // 设置页面跳转的路径
+	      component: () => import('@/views/hosp/list'),
+	      meta: { title: '医院列表', icon: 'table' }
+	    },
 
-	  {
-	    path: 'hospital/show/:id',
-	    name: '查看',
-	    component: () => import('@/views/hosp/show'),
-	    meta: { title: '查看', noCache: true },
-      hidden: true
-    },
+	    {
+	      path: 'hospital/show/:id',
+	      name: '查看',
+	      component: () => import('@/views/hosp/show'),
+	      meta: { title: '查看', noCache: true },
+        hidden: true
+      },
 
-	  {
-	    path: 'hospital/schedule/:hoscode',
-	    name: '排班',
-	    component: () => import('@/views/hosp/schedule'),
-	    meta: { title: '排班', noCache: true },
-	  	hidden: true
-	  }
+	    {
+	      path: 'hospital/schedule/:hoscode',
+	      name: '排班',
+	      component: () => import('@/views/hosp/schedule'),
+	      meta: { title: '排班', noCache: true },
+	  	  hidden: true
+	    }
     ]
   },
 
@@ -133,6 +133,7 @@ export const constantRouterMap = [
         component: () =>import('@/views/order/orderInfo/list'),
         meta: { title: '订单列表' }
       },
+
       {
         path: 'orderInfo/show/:id',
         name: '查看',
@@ -161,6 +162,7 @@ export const constantRouterMap = [
         component: () => import('@/views/user/userInfo/list'),
         meta: { title: '用户列表', icon: 'table' }
       },
+
       {
         path: 'userInfo/show/:id',
         name: '用户查看',
@@ -168,11 +170,29 @@ export const constantRouterMap = [
         meta: { title: '用户查看', icon: 'table' },
         hidden: true
       },
+
       {
         path: 'userInfo/authList',
         name: '认证审批列表',
         component: () => import('@/views/user/userInfo/authList'),
         meta: { title: '认证审批列表', icon: 'table' },
+      }
+    ]
+  },
+
+  {
+    path: '/statistics',
+    component: Layout,
+    redirect: '/statistics/order/index',
+    name: 'BasesInfo',
+    meta: { title: '统计管理', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'order/index',
+        name: '预约统计',
+        component: () =>import('@/views/statistics/order/index'),
+        meta: { title: '预约统计' }
       }
     ]
   },

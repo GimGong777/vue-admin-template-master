@@ -95,7 +95,7 @@
   </div>
 </template>
 <script>
-import orderInfoApi from '@/api/order/orderInfo'
+import orderInfoApi from '@/api/orderInfo'
 
 export default {
   data() {
@@ -126,9 +126,9 @@ export default {
       // console.log('翻页。。。' + page)
       // 异步获取远程数据（ajax）
       this.page = page
-      orderInfoApi.getPageList(this.page, this.limit, this.searchObj).then(
-        response => {
-          debugger
+      orderInfoApi.getPageList(this.page, this.limit, this.searchObj)
+        .then(response => {
+          // debugger
           this.list = response.data.records
           this.total = response.data.total
           // 数据加载并绑定成功
@@ -145,7 +145,7 @@ export default {
 
     // 重置查询表单
     resetData() {
-      console.log('重置查询表单')
+      // console.log('重置查询表单')
       this.searchObj = {}
       this.fetchData()
     }
